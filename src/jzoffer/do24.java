@@ -24,13 +24,35 @@ public class do24 {
         return h;
     }
 
+    //递归
+    public static ListNode ReverseList1(ListNode head) {
+        if(head==null || head.next==null)
+            return head;
+        ListNode next = head.next;
+        ListNode newHead = ReverseList1(next);
+        next.next = head;
+        return newHead;
+    }
+
+    //使用头插法
+    public static ListNode ReverseList2(ListNode head) {
+        //头节点
+        ListNode newList = new ListNode(-1);
+        while(head!=null) {
+            ListNode next = head.next;
+            head.next = newList.next;
+            newList.next = head;
+            head = next;
+        }
+        return newList.next;
+    }
 
 
     public static void main(String[] args) {
         ListNode<Integer> head = new ListNode<>(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
-        ListNode listNode = ReverseList(head);
+        ListNode listNode = ReverseList2(head);
         JUtils.showListNode(listNode);
     }
 }

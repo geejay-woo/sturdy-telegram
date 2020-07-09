@@ -18,9 +18,9 @@ public class JUtils {
         }
     }
 
-    // public static void main(String[] args) {
-    //     int[] array = new Random().ints().limit(10).toArray();
-    //     Integer[] integers = JUtils.intsToInteger(array);
-    //     System.out.println(Arrays.toString(integers));
-    // }
+     public static void main(String[] args) {
+         int[] array = new Random().ints().limit(10).toArray();
+         Integer[] integers = JUtils.intsToInteger(array);
+         System.out.println(Arrays.toString(integers));
+     }
 }
