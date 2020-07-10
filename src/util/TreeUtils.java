@@ -2,18 +2,120 @@ package util;
 
 import entity.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class TreeUtils {
 
     public static void main(String[] args) {
-        TreeNode<Integer> integerTreeNode = buildTree(new Integer[]{10,5,12,4,null,7});
-        preOrderTraverse(integerTreeNode);
+        TreeNode<Integer> integerTreeNode = buildTree(new Integer[]{10,6,14,4,8,12,16});
+        bfs(integerTreeNode);
     }
 
+    /**
+     * 树的层次遍历
+     * @param root
+     */
+    public static void bfs(TreeNode<Integer> root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode cur = root;
+        while(cur!=null || !queue.isEmpty()) {
+            if(cur!=null) {
+                System.out.print(cur.val);
+                queue.add(cur.left);
+                queue.add(cur.right);
+                cur = queue.poll();
+            } else {
+                cur = queue.poll();
+            }
+        }
+    }
+
+    /**
+     * 非递归实现后序遍历
+     * 两个栈，先序+中->右->左，再倒序即可
+     * @param root
+     */
+    public static void postOrderTraverseNonRecursive(TreeNode<Integer> root) {
+        Stack<TreeNode> src = new Stack<>();
+        Stack<TreeNode> res = new Stack<>();
+        src.push(root);
+        while(!src.isEmpty()) {
+            TreeNode<Integer> p = src.pop();
+            res.push(p);
+            if(p.left!=null)
+                src.push(p.left);
+            if(p.right!=null)
+                src.push(p.right);
+        }
+        while(!res.isEmpty()) {
+            System.out.print(res.pop().val+" ");
+        }
+    }
+
+    /**
+     * 递归实现后序遍历
+     */
+    public static void postOrderTraverse(TreeNode root) {
+        if(root==null) return;
+        postOrderTraverse(root.left);
+        postOrderTraverse(root.right);
+        System.out.print(root.val+" ");
+    }
+
+    /**
+     * 非递归实现中序遍历
+     * @param node
+     */
+    public static void inOrderTraverseNonRecursive(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        while(current!=null || !stack.isEmpty()) {
+            if(current!=null) {
+                stack.push(current);
+                current = current.left;
+            } else {
+                current = stack.pop();
+                System.out.print(current.val+" ");
+                current = current.right;
+            }
+        }
+    }
+
+    /**
+     * 递归实现中序遍历
+     * @param node
+     */
+    public static void inOrderTraverse(TreeNode node) {
+        if(node==null)
+            return;
+        inOrderTraverse(node.left);
+        System.out.print(node.val+" ");
+        inOrderTraverse(node.right);
+    }
+
+    /**
+     * 非递归实现前序遍历
+     * @param node
+     */
+    public static void preOrderTraverseNonRecursive(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        while(current!=null || !stack.isEmpty()) {
+            if(current!=null) {
+                System.out.print(current.val+" ");
+                stack.push(current);
+                current = current.left;
+            } else {
+                current = stack.pop();
+                current = current.right;
+            }
+        }
+    }
+
+    /**
+     * 递归实现前序遍历
+     * @param node
+     */
     public static void preOrderTraverse(TreeNode node) {
         if (node == null)
             return;
