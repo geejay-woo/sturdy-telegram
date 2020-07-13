@@ -8,8 +8,23 @@ public class TreeUtils {
 
     public static void main(String[] args) {
         TreeNode<Integer> integerTreeNode = buildTree(new Integer[]{10,6,14,4,8,12,16});
-        bfs(integerTreeNode);
+        test(integerTreeNode);
     }
+
+    public static String str = null;
+    public static void test(TreeNode node) {
+        if (node == null)
+            return;
+//        str = "0";
+//        System.out.println(str+":"+node.val);
+        test(node.left);
+        str = "1";
+        System.out.println(str+":"+node.val);
+        test(node.right);
+//        str = "2";
+//        System.out.println(str+":"+node.val);
+    }
+
 
     /**
      * 树的层次遍历

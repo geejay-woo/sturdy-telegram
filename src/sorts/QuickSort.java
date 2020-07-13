@@ -26,6 +26,10 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T> {
         return j;
     }
 
+    public static void main(String[] args) {
+        new QuickSort<Integer>().sort(new Integer[]{3,2}, 0,1);
+    }
+
     private void sort(T[] nums, int l, int h){
         if(h<=l)
             return;
