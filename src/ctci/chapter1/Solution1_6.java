@@ -1,4 +1,4 @@
-package ctci;
+package ctci.chapter1;
 
 import org.junit.Test;
 
