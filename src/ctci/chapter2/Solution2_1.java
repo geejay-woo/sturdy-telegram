@@ -20,6 +20,17 @@ public class Solution2_1 {
             }
             n = n.next;
         }
+
+//        HashMap<Integer, Boolean> tbs = new HashMap();
+//        tbs.put(n.data,true);
+//        while(n!=null && n.next!=null) {
+//            if(tbs.containsKey(n.next.data))
+//                n.next = n.next.next;
+//            else{
+//                tbs.put(n.next.data,true);
+//                n = n.next;
+//            }
+//        }
     }
 
     //不使用缓冲区
@@ -64,8 +75,8 @@ public class Solution2_1 {
 
     @Test
     public void test(){
-        Node node = LinkedListUtils.buildLinkedList(new int[]{5, 3, 9, 2, 5, 7, 3});
-        deleteDups2(node);
+        Node node = LinkedListUtils.buildLinkedList(new int[]{1,2,3,3,2,1});
+        deleteDups(node);
         LinkedListUtils.showLinkedList(node);
     }
 }
