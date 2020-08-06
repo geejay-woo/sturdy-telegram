@@ -139,6 +139,11 @@ public class TreeUtils {
         preOrderTraverse(node.right);
     }
 
+    /**
+     * 二叉树的构建；二叉查找树的构建见ctci.chapter4.Solution4_3
+     * @param arr
+     * @return
+     */
     public static TreeNode<Integer> buildTree(Integer[] arr) {
         if(arr==null || arr.length==0)
             return null;
