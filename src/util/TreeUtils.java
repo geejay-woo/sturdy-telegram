@@ -38,10 +38,8 @@ public class TreeUtils {
                 System.out.print(cur.val);
                 queue.add(cur.left);
                 queue.add(cur.right);
-                cur = queue.poll();
-            } else {
-                cur = queue.poll();
             }
+            cur = queue.poll();
         }
     }
 
