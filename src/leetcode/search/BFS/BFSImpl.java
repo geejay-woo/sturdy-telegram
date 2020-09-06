@@ -1,4 +1,4 @@
-package leetcode.search;
+package leetcode.search.BFS;
 
 import javafx.util.Pair;
 import org.junit.Test;

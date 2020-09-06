@@ -1,4 +1,4 @@
-package leetcode.search;
+package leetcode.search.BFS;
 
 import org.junit.Test;
 
