@@ -52,7 +52,7 @@ public class BinarySearchImpl {
      * @return
      */
     public int binarySearch3(int[] arr, int key) {
-        int f = 0, l = arr.length-1;
+        int f = 0, l = arr.length;
         while(f<l) {
             int m = f+(l-f)/2;
             if(arr[m]<=key) {
@@ -88,6 +88,6 @@ public class BinarySearchImpl {
 
     @Test
     public void test(){
-        System.out.println(binarySearchWrong(new int[]{1,3,5,7,9},8));
+        System.out.println(binarySearch2(new int[]{1,3,5,7,9},10));
     }
 }
