@@ -9,6 +9,7 @@ public class Solution_206 {
      */
     public ListNode reverseList(ListNode head) {
         if(head==null||head.next==null) return head;
+        //注意这里一定是 pre = null , 不然链表会出现环， 尾节点的next不为null
         ListNode pre = null, cur = head;
         while(cur!=null) {
             ListNode next = cur.next;
@@ -24,7 +25,7 @@ public class Solution_206 {
      * @return
      */
     public ListNode reverseList2(ListNode head) {
-        if(head==null || head.next==null) return head;
+        if(head==null || head.next==null ) return head;
         ListNode next = head.next;
         head.next = null;
         ListNode newHead = reverseList2(next);
