@@ -1,7 +1,6 @@
 package ctci.chapter3;
 
 import ctci.chapter2.Node;
-import javafx.beans.binding.BooleanExpression;
 import org.junit.Test;
 
 /**

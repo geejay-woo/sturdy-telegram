@@ -34,3 +34,8 @@
 
 279题：逐步优化 [题解](https://leetcode-cn.com/problems/word-ladder/solution/suan-fa-shi-xian-he-you-hua-javashuang-xiang-bfs23/)
 
+#### leetcode camp
+##### Solution704 二分查找
+每次循环根据不同查找的值比较结果，重新设置start和end变量，注意：
+ 1. start和end变量要为mid+1或者-1,不然会死循环
+ 2. 注意end的初始值，不要数组角标越界
